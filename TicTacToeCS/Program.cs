@@ -46,11 +46,7 @@ namespace TicTacToeCS
                     feld[7] = ' ';
                     feld[8] = ' ';                   
                 }
-            } while (frage == 'j');
-                
-            Console.WriteLine("Zum beenden Enter Druecken.");
-            Console.ReadLine();
-            
+            } while (frage == 'j');            
         }
 
         static void Spielerfarbe(char spielmarke)
@@ -141,7 +137,11 @@ namespace TicTacToeCS
             char spielerMark = '0';
             if (spieler == 0) spielerMark = spielmarke[0];
             else spielerMark = spielmarke[1];
-            Console.WriteLine("Spieler {0} {1} ist am zug!", spieler + 1, spielerMark);
+            Console.Write("Spieler {0}", spieler + 1);
+            Spielerfarbe(spielerMark);
+            Console.Write(" {0}", spielerMark);
+            Spielerfarbe('|');
+            Console.Write(" ist am zug!\n");
             do
             {
                 Console.WriteLine("Bitte geben sie ihren zug ein (1-9)");
