@@ -15,20 +15,40 @@ namespace TicTacToeCS
 
         static void Main(string[] args)
         {
-            int aktSpieler = 0, spielzug = 0;
+            char frage = 'n';
             do
             {
+                int aktSpieler = 0, spielzug = 0;
+                do
+                {
+                    Zeigespielplan(aktSpieler);
+                    Aktspielzug(aktSpieler);
+                    if (Pruefegewinn() == 1) break;
+                    if (aktSpieler == 0) aktSpieler = 1;
+                    else aktSpieler = 0;
+                    spielzug++;
+                } while (spielzug < 9);
                 Zeigespielplan(aktSpieler);
-                Aktspielzug(aktSpieler);
-                if (Pruefegewinn() == 1) break;
-                if (aktSpieler == 0) aktSpieler = 1;
-                else aktSpieler = 0;
-                spielzug++;
-            } while (spielzug < 9);
-            Zeigespielplan(aktSpieler);
-            if (spielzug < 9) Console.WriteLine("Spieler {0} hat gewonnen !\n\nZum beenden Enter Druecken.", aktSpieler + 1);
-            else Console.WriteLine("Unentschieden! ;)\n\nZum beenden Enter Druecken.");
+                if (spielzug < 9) Console.WriteLine("Spieler {0} hat gewonnen !\n", aktSpieler + 1);
+                else Console.WriteLine("Unentschieden! ;)\n");
 
+                Console.WriteLine("Wollen sie erneut spielen (j/n) ?");
+                frage = Char.Parse(Console.ReadLine());
+                if (frage == 'j')
+                {
+                    feld[0] = ' ';
+                    feld[1] = ' ';
+                    feld[2] = ' ';
+                    feld[3] = ' ';
+                    feld[4] = ' ';
+                    feld[5] = ' ';
+                    feld[6] = ' ';
+                    feld[7] = ' ';
+                    feld[8] = ' ';                   
+                }
+            } while (frage == 'j');
+                
+            Console.WriteLine("Zum beenden Enter Druecken.");
             Console.ReadLine();
             
         }
