@@ -10,6 +10,7 @@ namespace TicTacToeCS
     {
         static char[] feld = new char[9]  { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
         static char[] spielmarke = new char[2]  { 'X', 'O' };
+        static ConsoleColor temp = Console.ForegroundColor;
         
 
         static void Main(string[] args)
@@ -32,33 +33,77 @@ namespace TicTacToeCS
             
         }
 
-        static int Spielerfarbe(int spieler)
+        static void Spielerfarbe(char spielmarke)
         {
-            ConsoleColor temp = Console.ForegroundColor;
-            if (spieler == 0) Console.ForegroundColor = ConsoleColor.Red;
-            if (spieler == 1) Console.ForegroundColor = ConsoleColor.Blue;
-            //Console.ForegroundColor = ConsoleColor.White;
-            return 0;
+            switch(spielmarke)
+            {
+                case 'X':
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case 'O':
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                default:
+                    Console.ForegroundColor = temp;
+                    break;
+            }
+            return;
         }
 
         static void Zeigespielplan(int spieler)
         {
 
             Console.Clear();     // Console.Funktion() zum löschen des Screens
-            Console.WriteLine(" ***************");
-            Console.WriteLine(" * Tic Tac Toe *");
-            Console.WriteLine(" ***************");
-            Console.WriteLine("      |   |   ");
-            Console.WriteLine("    {0} | {1} | {2} 			 1 | 2 | 3 ", feld[0], feld[1], feld[2]);
-            Console.WriteLine("      |   |   ");
-            Console.WriteLine("   ---|---|---");
-            Console.WriteLine("      |   |   ");
-            Console.WriteLine("    {0} | {1} | {2} 			 4 | 5 | 6 ", feld[3], feld[4], feld[5]);
-            Console.WriteLine("      |   |   ");
-            Console.WriteLine("   ---|---|---");
-            Console.WriteLine("      |   |   ");
-            Console.WriteLine("    {0} | {1} | {2} 			 7 | 8 | 9 ", feld[6], feld[7], feld[8]);
-            Console.WriteLine("      |   |   ");
+            Console.Write(" ***************\n");
+            Console.Write(" * Tic Tac Toe *\n");
+            Console.Write(" ***************\n");
+            Console.Write("      |   |   \n");
+            Console.Write("    ");
+            Spielerfarbe(feld[0]);
+            Console.Write("{0}",feld[0]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[1]);
+            Console.Write("{0}",feld[1]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[2]);
+            Console.Write("{0}",feld[2]);
+            Spielerfarbe('|');
+            Console.Write(" 			 1 | 2 | 3 \n");
+            Console.Write("      |   |   \n");
+            Console.Write("   ---|---|---\n");
+            Console.Write("      |   |   \n");
+            Console.Write("    ");
+            Spielerfarbe(feld[3]);
+            Console.Write("{0}", feld[3]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[4]);
+            Console.Write("{0}", feld[4]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[5]);
+            Console.Write("{0}", feld[5]);
+            Spielerfarbe('|');
+            Console.Write(" 			 4 | 5 | 6 \n");
+            Console.Write("      |   |   \n");
+            Console.Write("   ---|---|---\n");
+            Console.Write("      |   |   \n");
+            Console.Write("    ");
+            Spielerfarbe(feld[6]);
+            Console.Write("{0}", feld[6]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[7]);
+            Console.Write("{0}", feld[7]);
+            Spielerfarbe('|');
+            Console.Write(" | ");
+            Spielerfarbe(feld[8]);
+            Console.Write("{0}", feld[8]);
+            Spielerfarbe('|');
+            Console.Write(" 			 7 | 8 | 9 \n");
+            Console.Write("      |   |   \n");
 
             return;
         }
